@@ -1,0 +1,59 @@
+.form-container {
+    display: flex;
+  }
+
+  .form-column {
+    width: 100%;
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  .form-column label, span {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-column input,
+  .form-column textarea,
+  .form-column select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .box {
+    border: 10px solid black;
+    padding: 10px;
+    margin: 10px auto;
+    width: 50%; 
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+
+  .loan-term-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .loan-term-container label, input {
+    margin-right: 5px;
+  }
+
+  /*To remove the arrow icon for type number*/
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0; 
+  }

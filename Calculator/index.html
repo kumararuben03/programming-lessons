@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Simple Calculator</title>
+    <link rel="shortcut icon" href="gaia_icon.png">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+    <h2>A Simple Calculator</h2>
+    <div class="calculator-container">
+        <input type="number" placeholder="Number 1" id="num1" />
+        <br>
+        <input type="number" placeholder="Number 2" id="num2"/>
+        <br>
+        <div id="btnGroup">
+            <button id="btnAdd">+</button>
+            <button id="btnSub">-</button>
+            <button id="btnMul">*</button>
+            <button id="btnDiv">/</button>
+            <br>
+            <button id="btnExp">**</button>
+            <button id="btnMod">%</button>
+        </div>
+
+        <br>
+        <input type="number" id="outputArea" readonly>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
