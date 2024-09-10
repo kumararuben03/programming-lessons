@@ -1,8 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="fill-height">
-      <v-card
+      <v-dialog max-width="500" max-height="80vh">
+        <template v-slot:activator="{ props: activatorProps }">
+          <v-btn
+            v-bind="activatorProps"
+            color="surface-variant"
+            text="Open Dialog"
+            variant="flat"
+          ></v-btn>
+        </template>
+
+        <template v-slot:default="{ isActive }">
+          <v-card
     class="mx-auto pa-2 border-sm"
     width="400"
     height="400"
@@ -59,15 +69,23 @@
         </v-col>
       </v-row>
     </v-card-text>
-  </v-card>
-  
 
-  
-</v-container>
+    <v-card-actions>
+        <v-spacer></v-spacer>
+
+        <v-btn
+          text="Close Dialog"
+          @click="isActive.value = false"
+          variant="outlined"
+        ></v-btn>
+      </v-card-actions>
+  </v-card>
+        </template>
+      </v-dialog>
     </v-main>
   </v-app>
 </template>
 
 <script setup lang="ts">
-  //
 </script>
+
