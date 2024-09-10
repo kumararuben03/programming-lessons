@@ -1,10 +1,11 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="fill-height" >
-        <v-responsive class="mx-auto border-sm bg-light-blue-darken-4" max-width="1000">
+      <v-container class="fill-height bg-blue-grey-darken-3" >
+        <v-responsive class="mx-auto border-sm bg-grey-lighten-2" max-width="1000">
 
           <h1 class="text-center my-5">Registration Page</h1>
+          <p class="text-center my-5">Fill in the form to apply for class enrollment</p>
 
           <v-form fast-fail @submit.prevent class="pa-4">
             <h2 class="mb-2">Student Information</h2>
@@ -41,7 +42,8 @@
                 <v-text-field
                 label="Birth Date"
                 prepend-inner-icon="mdi-cake-variant"
-                type="date">
+                type="date"
+                >
 
                 </v-text-field>
               </v-col>
@@ -56,7 +58,7 @@
             </v-row>
 
             <v-row align="center">
-              <v-col cols="3">
+              <v-col cols="4">
                 <p>Gender:</p>
                 <v-radio-group inline>
                   <v-radio label="Male" value="male"></v-radio>
@@ -64,7 +66,7 @@
                 </v-radio-group>
               </v-col>
 
-              <v-col cols="9">
+              <v-col cols="8">
                 <p>Choose one study area:</p>
                 <v-radio-group inline>
                   <v-radio label="IT" value="it"></v-radio>
@@ -134,7 +136,7 @@
 
               <v-col cols="6">
                 <v-text-field
-                label="Student ID"
+                label="Contact No."
                 prepend-inner-icon="mdi-phone"
                 >
                 </v-text-field>
@@ -142,20 +144,10 @@
             </v-row>
             
             <h2 class="mb-2">Upload Transcript</h2>
-            <v-row align="center">
-              <v-col cols="1">
-                <v-icon>
-                  mdi-paperclip
-                </v-icon>
-              </v-col>
-
-              <v-col cols="11">
-                <v-text-field
-                label="Transcript in PDF format"
-                >
-                </v-text-field>
-              </v-col>
-            </v-row>
+            <v-file-input
+              accept="application/pdf"
+              label="Transcripts"
+            ></v-file-input>
 
             <h2 class="mb-2">Remarks</h2>
             <v-textarea 
@@ -176,3 +168,4 @@
 <script setup>
   //
 </script>
+
