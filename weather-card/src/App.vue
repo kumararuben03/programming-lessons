@@ -3,7 +3,7 @@
     <v-main>
       <v-container class="fill-height">
       <v-card
-    class="mx-auto"
+    class="mx-auto pa-2 border-sm"
     width="350"
     height="350"
   >
@@ -60,6 +60,7 @@
       </v-row>
     </v-card-text>
   </v-card>
+  
 
   
 </v-container>
