@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="fill-height">
+      <v-container class="fill-width">
         <v-row>
           <v-col cols="6">
             <LineChart/>
