@@ -22,13 +22,13 @@
                         backgroundColor:'#5cc0e9',
                         borderColor: '#5cc0e9',
                         data: [5200, 4800, 6100, 5500, 7200, 8100, 9300, 8700, 7600, 6900, 6300, 7800],
+                        type: 'line',
                     },
                     {
-                        label: 'Set 1',
+                        label: 'Set 2',
                         backgroundColor:'#f5a505',
                         borderColor: '#f5a505',
-                        data: [5200, 4800, 6100, 5500, 7200, 8100, 9300, 8700, 7600, 6900, 6300, 7800],
-                        type: 'line'
+                        data: [200, 800, 600, 500, 700, 800, 900, 800, 700, 900, 600, 800],
                     },]
                 },
                 chartOptions: {
@@ -55,9 +55,7 @@
                             display: true,
                             text: 'Company Sales Revenue in ($)'
                         },
-                        legend:{
-                            display: false,
-                        }
+                        
                     },
                 }
             }

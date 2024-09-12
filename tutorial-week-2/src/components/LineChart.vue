@@ -54,9 +54,7 @@
                             display: true,
                             text: 'Company Sales Revenue in ($)'
                         },
-                        legend:{
-                            display: false,
-                        }
+                        
                     },
                 }
             }
