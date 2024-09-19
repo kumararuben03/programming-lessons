@@ -1,18 +1,18 @@
 <template>
   <div class="responsive">
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
-    </nav>
+    <v-row>
+      <v-col cols="12" md="6" sm="4" href="#">Home</v-col>
+      <v-col cols="12" md="6" sm="4" href="#">About</v-col>
+      <v-col cols="12" md="6" sm="4" href="#">Services</v-col>
+      <v-col cols="12" md="6" sm="4" href="#">Contact</v-col>
+    </v-row>
     <div class="container">
-      <div class="content">
-        <div class="card">Card 1</div>
-        <div class="card">Card 2</div>
-        <div class="card">Card 3</div>
-        <div class="card">Card 4</div>
-      </div>
+      <v-row>
+        <v-col cols="12" md="6" sm="4">Card 1</v-col>
+        <v-col cols="12" md="6" sm="4">Card 2</v-col>
+        <v-col cols="12" md="6" sm="4">Card 3</v-col>
+        <v-col cols="12" md="6" sm="4">Card 4</v-col>
+      </v-row>
     </div>
   </div>
 </template>
