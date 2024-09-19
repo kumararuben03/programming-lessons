@@ -1,7 +1,20 @@
 <template>
   <v-app>
     <v-main>
-      <v-container>
+      <v-container fluid>
+        <v-row>
+          <v-col cols="12">
+            <v-progress-linear
+              :value="percentageCompleted"
+              height="25"
+              :color="progressBarColor"
+              :background-color="progressBarColor"
+              :style="progressBarStyle"
+            >
+              {{ percentageCompleted.toFixed(0) }}%
+            </v-progress-linear>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col cols="12">
             <h1 class="text-center">Todo List App</h1>
@@ -16,14 +29,13 @@
             <v-btn @click="addTask" color="primary">ADD</v-btn>
           </v-col>
         </v-row>
+
         <v-row v-for="(task, index) in tasks" :key="index">
           <v-col cols="12">
             <v-card class="mb-2">
               <div class="list-btns">
-                <v-checkbox
-                  v-model="task.completed"
-                  label="Completed"
-                ></v-checkbox>
+                <v-checkbox v-model="task.completed" label="Completed">
+                </v-checkbox>
                 <div class="edit-btns">
                   <v-btn
                     icon
@@ -71,54 +83,6 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      tasks: [],
-      newTask: "",
-    };
-  },
+<script src="./assets/scripts.js"></script>
 
-  methods: {
-    addTask() {
-      if (this.newTask.trim() !== "") {
-        this.tasks.push({
-          text: this.newTask,
-          completed: false,
-          editable: false, // Add editable property
-        });
-        this.newTask = "";
-      }
-    },
-
-    editTask(index) {
-      this.tasks[index].editable = true;
-    },
-
-    deleteTask(index) {
-      this.tasks.splice(index, 1);
-    },
-
-    saveTask(index) {
-      this.tasks[index].editable = false;
-    },
-  },
-};
-</script>
-
-<style>
-.v-card-title .v-btn {
-  margin-left: 5px;
-}
-
-.list-btns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.edit-btns {
-  display: flex;
-  gap: 10px;
-}
-</style>
+<style src="./assets/styles.css"></style>
