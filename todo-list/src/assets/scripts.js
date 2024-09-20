@@ -18,6 +18,12 @@ export default {
       }
     },
 
+    handleEnterKey(event) {
+      if (event.keyCode === 13) {
+        this.addTask();
+      }
+    },
+
     editTask(index) {
       this.tasks[index].editable = true;
     },
@@ -39,10 +45,10 @@ export default {
     },
 
     progressBarColor() {
-      return this.percentageCompleted === 100 ? "success" : "primary";
+      return this.percentageCompleted === 100 ? "success" : "error";
     },
     progressBarStyle() {
-      return { "background-size": `${this.percentageCompleted}% 100%` };
+      return { "background-size": `${this.percentageCompleted}%` };
     },
   },
 };

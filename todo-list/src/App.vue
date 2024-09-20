@@ -10,6 +10,7 @@
               :color="progressBarColor"
               :background-color="progressBarColor"
               :style="progressBarStyle"
+              v-model="percentageCompleted"
             >
               {{ percentageCompleted.toFixed(0) }}%
             </v-progress-linear>
@@ -25,6 +26,7 @@
             <v-text-field
               label="Add a new task"
               v-model="newTask"
+              @keyup.enter="handleEnterKey"
             ></v-text-field>
             <v-btn @click="addTask" color="primary">ADD</v-btn>
           </v-col>
