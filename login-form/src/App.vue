@@ -13,12 +13,9 @@
               type="email"
             ></v-text-field>
 
-            <v-text-field
-              label="password"
-              prepend-inner-icon="mdi-lock-outline"
-              type="password"
-            ></v-text-field>
-            <v-btn class="mt-2" type="submit" color="green" block>Submit</v-btn>
+            <v-btn class="mt-2" type="submit" color="#013D5A" block
+              >Submit</v-btn
+            >
           </v-form>
         </v-responsive>
       </v-container>

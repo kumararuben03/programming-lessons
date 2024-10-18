@@ -2,36 +2,23 @@
   <v-app>
     <v-main>
       <v-container fluid>
-        <v-row>
-          <v-col cols="12">
-            <v-progress-linear
-              :value="percentageCompleted"
-              height="25"
-              :color="progressBarColor"
-              :background-color="progressBarColor"
-              :style="progressBarStyle"
-              v-model="percentageCompleted"
-            >
-              {{ percentageCompleted.toFixed(0) }}%
-            </v-progress-linear>
-          </v-col>
-        </v-row>
+        <ProgressLinear :percentage="percentageCompleted" />
         <v-row>
           <v-col cols="12">
             <h1 class="text-center">Todo List App</h1>
           </v-col>
         </v-row>
-        <v-row>
-          <v-col cols="12">
-            <v-text-field
-              label="Add a new task"
-              v-model="newTask"
-              @keyup.enter="handleEnterKey"
-            ></v-text-field>
-            <v-btn @click="addTask" color="primary">ADD</v-btn>
-          </v-col>
-        </v-row>
-
+        <AddTask @add-task="addTask" />
+        <!-- 
+        <TaskItem
+          v-for="(task, index) in tasks"
+          :key="index"
+          :task="task"
+          @edit="editTask(index)"
+          @delete="deleteTask(index)"
+          @save="saveTask(index)"
+          @update:completed="updateTaskCompletion(index, $event)"
+        /> -->
         <v-row v-for="(task, index) in tasks" :key="index">
           <v-col cols="12">
             <v-card class="mb-2">
@@ -86,6 +73,10 @@
 </template>
 
 <script>
+import ProgressLinear from "./components/ProgressLinear.vue";
+import AddTask from "./components/AddTask.vue";
+import TaskItem from "./components/TaskItem.vue";
+
 export default {
   data() {
     return {
@@ -94,34 +85,31 @@ export default {
     };
   },
 
+  components: {
+    ProgressLinear,
+    AddTask,
+    TaskItem,
+  },
+
   methods: {
-    addTask() {
-      if (this.newTask.trim() !== "") {
-        this.tasks.push({
-          text: this.newTask,
-          completed: false,
-          editable: false, // Add editable property
-        });
-        this.newTask = "";
-      }
+    addTask(newTask) {
+      this.tasks.push({
+        text: newTask,
+        completed: false,
+        editable: false,
+      });
     },
-
-    handleEnterKey(event) {
-      if (event.keyCode === 13) {
-        this.addTask();
-      }
-    },
-
     editTask(index) {
       this.tasks[index].editable = true;
     },
-
     deleteTask(index) {
       this.tasks.splice(index, 1);
     },
-
     saveTask(index) {
       this.tasks[index].editable = false;
+    },
+    updateTaskCompletion(index, completed) {
+      this.$set(this.tasks[index], "completed", completed);
     },
   },
 
@@ -131,40 +119,6 @@ export default {
       const completedTasks = this.tasks.filter((task) => task.completed).length;
       return totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
     },
-
-    progressBarColor() {
-      return this.percentageCompleted === 100 ? "success" : "error";
-    },
-    progressBarStyle() {
-      return { "background-size": `${this.percentageCompleted}%` };
-    },
   },
 };
 </script>
-
-<style>
-.v-card-title .v-btn {
-  margin-left: 5px;
-}
-
-.list-btns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.edit-btns {
-  display: flex;
-  gap: 10px;
-}
-
-.v-progress-linear {
-  width: 100%;
-  font-weight: bolder;
-}
-
-@media only screen and (max-width: 600px) {
-  .v-progress-linear {
-    margin: 0 auto;
-  }
-}
-</style>
